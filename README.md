@@ -15,6 +15,7 @@ mathematical quantifier [1, 2].
 # How we calculate Phi
 
 In calculating Tononi Phi values, three major issues arise
+
     1)  There are at least 420 choices one can make in calculating the measure [3];
     
     2)  Determination of the “Minimum Information Partition” (MIP) of the causal graph structure grows super-exponentially with the number of nodes;
