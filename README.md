@@ -23,7 +23,7 @@ In calculating Tononi Phi values, three major issues arise
     3)  and the size of the probability distribution vectors required to determine Phi also increases super-exponentially with the number of nodes. 
     
 We have chosen to implement Phi 3.0 [4] employing Queyranne’s Algorithm [5] to
-obtai n agood approximation of the MIP. More specifically, we used the method of
+obtain a good approximation of the MIP. More specifically, we used the method of
 Krohn and Ostwald [6] as it applies to time series.  We stored the (often sparse)
 probability distributions using Python dictionaries instead of arrays.
 
