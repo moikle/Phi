@@ -21,9 +21,11 @@ In calculating Tononi Phi values, three major issues arise
 
     1)  There are at least 420 choices one can make in calculating the measure [3];
     
-    2)  Determination of the “Minimum Information Partition” (MIP) of the causal graph structure grows super-exponentially with the number of nodes;
+    2)  Determination of the “Minimum Information Partition” (MIP) of the causal
+        graph structure grows super-exponentially with the number of nodes;
     
-    3)  and the size of the probability distribution vectors required to determine Phi also increases super-exponentially with the number of nodes. 
+    3)  and the size of the probability distribution vectors required to determine
+        Phi also increases super-exponentially with the number of nodes. 
     
 # Queyranne's Algorithm    
 
@@ -45,9 +47,8 @@ group) empirically demonstrated that Queyranne’s algorithm efficiently finds
 approximation to MIP in the context of the 𝚽* (mismatched decoding) phi 
 approximation.
 
-Although similar results appear to hold for Phi 3.0, we have  
-not yet conclusively demonstrated, through exhaustive experimentation, that this is 
-indeed the case.
+Although similar results appear to hold for Phi 3.0, we have not yet conclusively 
+demonstrated, through exhaustive experimentation, that this is indeed the case.
 
 Since even Queyranne's algorithm grows as the cube of the number of nodes, we
 include sklearn Independent Component Analysis (ICA) implementations that can be
