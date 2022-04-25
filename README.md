@@ -3,7 +3,10 @@
 # Overview
 
 Takes as input a time series of values (importance or excitation values
-for example) and returns a time series of estimated Tononi Phi values
+for example) and returns a time series of estimated Tononi Phi values.
+
+# Main files
+ 
 
 # What is Tononi Phi?
 
@@ -12,7 +15,7 @@ Created by University of Wisconsin psychiatrist and neuroscientist Giulio Tononi
 studying and quantifying consciousness. Its centerpiece is Phi, Tononi’s
 mathematical quantifier [1, 2].
 
-# How we calculate Phi
+# Issues in calculating Phi
 
 In calculating Tononi Phi values, three major issues arise
 
@@ -22,14 +25,33 @@ In calculating Tononi Phi values, three major issues arise
     
     3)  and the size of the probability distribution vectors required to determine Phi also increases super-exponentially with the number of nodes. 
     
-We have chosen to implement Phi 3.0 [4] employing Queyranne’s Algorithm [5] to
-obtain a good approximation of the MIP. More specifically, we used the method of
-Krohn and Ostwald [6] as it applies to time series.  We stored the (often sparse)
-probability distributions using Python dictionaries instead of arrays.
+# Queyranne's Algorithm    
+
+Depending upon the number of features (nodes), we have implemented  two 
+approaches for determining the MIP: brute force and Queyranne's algorithm. 
+The brute force approach grows super-exponetially in both space and time complexity,
+and hence is only practical for small numbers of features. to overcome this 
+limitation, we have also chosen to implement Phi 3.0 [4] employing Queyranne’s 
+Algorithm [5] t oobtain a good approximation of the MIP. More specifically, we used 
+the method of Krohn and Ostwald [6] as it applies to time series.  We also stored 
+the (often sparse) probability distributions using Python dictionaries instead of 
+arrays. Our experiments demonstrate that the two implementations provide identical
+partitions for small numbers of nodes.
+
+Queyranne's Algorithm is a graph theoretic algorithm that solves the
+MIP/Max Transport Problem for submodular set functions. Although
+Phi calculations are not submodular, Kitazono, Kanai, and Oizumi [3, 7] (Araya 
+group) empirically demonstrated that Queyranne’s algorithm efficiently finds 
+approximation to MIP in the context of the 𝚽* (mismatched decoding) phi 
+approximation.
+
+Although similar results appear to hold for Phi 3.0, we have  
+not yet conclusively demonstrated, through exhaustive experimentation, that this is 
+indeed the case.
 
 Since even Queyranne's algorithm grows as the cube of the number of nodes, we
 include sklearn Independent Component Analysis (ICA) implementations that can be
-used as a preprocessing step to reduce the feature dimensionality.
+used as preprocessing steps to reduce the feature dimensionality.
 
 # References
 
@@ -52,3 +74,7 @@ https://doi.org/10.1371/journal.pcbi.1005123
 [6] Krohn, S., Ostwald, D.: Computing integrated information. Neuroscience
 of Consciousness 2017(1), nix017 (2017). https://doi.org/10.1093/nc/nix017,
 http://dx.doi.org/10.1093/nc/nix017
+
+[7] Oizumi,M.,Amari,S.,Yanagawa,T.,Fujii,N.,Tsuchiya,N.:Measuringintegrated
+information from the decoding perspective. PLoS Comput Biol 12(1), e1004654
+(2016). https://doi.org/10.1371/journal.pcbi.1004654
