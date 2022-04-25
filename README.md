@@ -30,9 +30,9 @@ In calculating Tononi Phi values, three major issues arise
 Depending upon the number of features (nodes), we have implemented  two 
 approaches for determining the MIP: brute force and Queyranne's algorithm. 
 The brute force approach grows super-exponetially in both space and time complexity,
-and hence is only practical for small numbers of features. to overcome this 
+and hence is only practical for small numbers of features. To overcome this 
 limitation, we have also chosen to implement Phi 3.0 [4] employing Queyranne’s 
-Algorithm [5] t oobtain a good approximation of the MIP. More specifically, we used 
+Algorithm [5] to obtain a good approximation of the MIP. More specifically, we used 
 the method of Krohn and Ostwald [6] as it applies to time series.  We also stored 
 the (often sparse) probability distributions using Python dictionaries instead of 
 arrays. Our experiments demonstrate that the two implementations provide identical
