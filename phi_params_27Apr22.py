@@ -1,0 +1,9 @@
+int_len = 12
+num_of_bins = 50
+num_of_nodes = 3
+input_file = '/Users/moikle_admin/Research/SingularityNET/Python/Phi Pipeline/Sophia_Meditation.csv'
+no_of_cols_to_skip = 0
+delim = ","
+sliding_window_start = 1
+max_nodes = 50
+ICA_switch = True

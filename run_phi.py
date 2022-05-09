@@ -1,9 +1,8 @@
 from binner import *
 from build_hash import *
 import csv
-#likeABoss
 from cal_p_current import * #its called cow pee because it was cal p for calculate probability and
-#cal p sounds like cow pee and cow pee is alot cooler and we really cant miss that opertunity.
+
 #from get_all_graphs import *
 from tuple_time_series import *
 #import phi_params as conf
