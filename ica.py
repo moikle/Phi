@@ -1,22 +1,27 @@
+# This file provides Sk-learn functionality for reducing the feature dimensionality of multi-dimsional time series data as a pre-processing step in calculating Tononi Phi.
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 import sys
 import csv
 from sklearn import decomposition
+import phi_params_27Apr22 as conf
 
 from sklearn.decomposition import FastICA, PCA, fastica
 from numpy import genfromtxt
 
+# The compute_ica function reads in a file name. The input file should be a csv or tsv array-like file of shape (n_samples, n_features).compute_ica outputs a pair [S_, num_of_nodes] in which S_ is the best fit ICA transform and num_of_nodes is the number of nodes leading to the smallest sum of sqaure residuals (ssr). The number of nodes is currently hard-coded as being in the range [3, max_nodes].
 def compute_ica(file):
-    S = genfromtxt(file, delimiter=',')
+    S = genfromtxt(file, delimiter = conf.delim)
+    S = S[starting_value: starting_value + int_len -1]
     ica = None
-    ssr = np.zeros(20)
-    for loc in range (20):
+    ssr = np.zeros(max_nodes + 1)
+    # Determine number of nodes that minimizes sum of the squares of the errors
+    for loc in range (max_nodes + 1):
         dim = loc+3
-        ica = decomposition.FastICA(n_components = dim, max_iter = 1000, tol = 1e-02)
-        S_ = ica.fit_transform(S)
-        A_ = ica.mixing_.T
+#        ica = decomposition.FastICA(n_components = dim, max_iter = 1000, tol = 1e-02)
+#        S_ = ica.fit_transform(S)
+#        A_ = ica.mixing_.T
         #np.allclosei(X, np.dot(S_, A_) + ica.mean_)
         [K, W, S_] = fastica(S, n_components = dim, max_iter = 1000, tol = 1e-02)
         w = np.dot(W.T, K)
@@ -36,18 +41,4 @@ def compute_ica(file):
     S_ = ica.fit_transform(S)
     return([S_, num_of_nodes])
 
-filename = "/Users/moikle_admin/Research/SingularityNET/Phi+Reputation/equilDefault9conserv1/rankHistory_r_20_0.1_test.csv"
-[S_, num_of_nodes] = compute_ica(filename)
-with open('/Users/moikle_admin/Research/SingularityNET/Phi+Reputation/equilDefault9conserv1/S_.csv', 'w') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerows(S_)
 
-f = open("/Users/moikle_admin/Research/SingularityNET/Python/Phi Pipeline/phi_params.py" , "w")
-f.write("int_len = 20 \n")
-f.write("num_of_nodes = ")
-f.write(str(num_of_nodes))
-f.write("\n")
-f.write("num_of_bins = 5 \n")
-f.write("file_path = '/Users/moikle_admin/Research/SingularityNET/Phi+Reputation/equilDefault9conserv1/S_.csv' \n")
-f.write("no_of_cols_to_skip = 0 \n")
-f.close()
