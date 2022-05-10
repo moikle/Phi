@@ -1,5 +1,5 @@
 import import_ipynb
-from phi_params import *
+from phi_params_27Apr22.py import *
 
 def get_all_graphs():
 	graph_list = graphs
