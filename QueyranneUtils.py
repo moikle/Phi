@@ -6,7 +6,7 @@ from cal_p_current import * #its called cow pee because it was cal p for calcula
 #cal p sounds like cow pee and cow pee is alot cooler and we really cant miss that opertunity.
 #from get_all_graphs import *
 from tuple_time_series import *
-#import phi_params as conf
+#import phi_params_27Apr22.py as conf
 from scipy.stats import wasserstein_distance
 import matplotlib.pyplot as plt
 import numpy as np

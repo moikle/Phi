@@ -3,7 +3,7 @@ import sys
 import csv
 import numpy as np
 import math
-import pandas as pd
+#import pandas as pd
 
 # Returns an array of the same size with values replaced by appropriate bin numbers.
 # Bin ranges are found as ((SERIES_MAX - SERIES_MIN)/ NUMBER_BINS) * BIN_NUMBER + SERIES_MIN
