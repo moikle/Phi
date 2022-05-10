@@ -2,7 +2,7 @@ import os
 import numpy as np
 import pickle
 import matplotlib.pyplot as plt
-import phi_params as conf
+import phi_params_27Apr22.py as conf
 
 num_iterations = 100
 phi_series = [[] for _ in range(num_iterations)]
