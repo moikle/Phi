@@ -40,7 +40,7 @@ main.py:
     "python main.py" begins the Phi pipeline. There are multiple helper functions for the main run_phi function.
     
 nodes_conf.py:
-    When using ICA (ICA_switch set to "True"), nodes_conf is a configuration file solely for updating the num_of_nodes used for each sliding window.
+    When using ICA (ICA_switch set to "True"), nodes_conf is a configuration file solely for updating the num_of_nodes used for each sliding window. This number is stored in the nodes_conf.py configuration file and subsequently read in to perform the appropriate graph partitions and probability calculations.
     
 partition.png:
     This diagram illustrates the graph "effect repertoire" partition [[(0,1),(1,2)],[(2,),(0,)]] in which nodes 0 and 1 affect nodes 1 and 2, while node 2 affects node 0
