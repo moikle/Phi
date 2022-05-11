@@ -34,7 +34,7 @@ def get_new_num():
 Calculates Pe/c(X{t_or_t-1}|X{t_or_t-1}) = X)
 INPUTS: the current state, or X
         the system inforamtion or tuple hash
-        args-  a parameter for e or c (args ==0 means, e args ==1 means c)
+        args-  a parameter for e or c (args == 0 means e; args == 1 means c)
 OUTPUTS:A probabilty distrobution with slots for every possible state (some zero)
 """    
 
