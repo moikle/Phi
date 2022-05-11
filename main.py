@@ -10,7 +10,7 @@ import nodes_conf as nodes_conf
 from scipy.stats import wasserstein_distance
 import matplotlib.pyplot as plt
 import numpy as np
-#import pickle
+from ica import compute_ica
 
 # Function that takes two lists as inputs and returns a list of the set union of the two lists
 def Union(lst1, lst2):
